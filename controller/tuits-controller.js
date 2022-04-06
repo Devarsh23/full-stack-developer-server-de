@@ -8,6 +8,7 @@ const createTuit = (req, res) => {
     newTuit.dislikes = 0;
     newTuit.postedBy = {};
     newTuit.postedBy.username = "Jose";
+    newTuit.handle = "Fiction";
     newTuit.stats = {};
     newTuit.stats.comments = 0;
     newTuit.stats.retuits = 0;
