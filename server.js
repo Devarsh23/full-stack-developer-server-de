@@ -21,6 +21,5 @@ app.use(express.json());
 helloController(app);
 userController(app);
 tuitsController(app);
-console.log("hello");
 app.listen(process.env.PORT || 4000);
 

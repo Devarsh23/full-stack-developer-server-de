@@ -24,7 +24,6 @@ const createTuit = async (req, res) => {
     newTuit.stats.likes = 0;
     newTuit.logoImage = "../../tuiter/images/elon.jpg";
     // tuits.push(newTuit);
-    console.log(newTuit, "xy");
     const insertedTuit = await tuitsDao.createTuit(newTuit);
     res.json(insertedTuit);
 
@@ -44,10 +43,8 @@ const updateTuit = async (req, res) => {
         // if (status["deletedCount"] === 1) {
         //     res.sendStatus(200);
         // }
-        console.log("status 1--> ", status);
         res.sendStatus(200);
     } else {
-        console.log("status 2--> ", status)
         res.sendStatus(500) ;
     }
     //res.sendStatus(status);
@@ -59,16 +56,13 @@ const deleteTuit = async (req, res) => {
     const status = await tuitsDao.deleteTuit(tuitdIdToDelete);
     //tuits = tuits.filter(t => t._id !== tuitdIdToDelete);
 
-    console.log("Status--> ", status);
     if (status["acknowledged"]) {
         // console.log("status 1--> ",status);
         // if (status["deletedCount"] === 1) {
         //     res.sendStatus(200);
         // }
-        console.log("status 1--> ", status);
         res.sendStatus(200);
     } else {
-        console.log("status 2--> ", status)
         res.sendStatus(500) ;
     }
 }
