@@ -11,7 +11,8 @@ const CONNECTION_STRING = process.env.DB_CONNECTION_STRING
     || 'mongodb://localhost:27017/webdev'
 
 // mongodb+srv://devarsh23:<password>@cluster0.pxmhw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
-mongoose.connect(CONNECTION_STRING);
+// mongoose.connect(CONNECTION_STRING);
+mongoose.connect("mongodb+srv://devarsh23:hello123@cluster0.pxmhw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 // mongoose.connect('mongodb://0.0.0.0:27017/webdev');
 const app = express();
 app.use(cors());
