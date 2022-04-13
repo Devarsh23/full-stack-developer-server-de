@@ -6,7 +6,12 @@ import cors from 'cors';
 import helloController from "./controller/hello-controller.js";
 import userController   from "./controller/user-controller.js";
 import tuitsController from "./controller/tuits-controller.js";
-mongoose.connect('mongodb://localhost:27017/webdev');
+const DB_CONNECTION_STRING = "mongodb+srv://devarsh23:hello123@cluster0.pxmhw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const CONNECTION_STRING = process.env.DB_CONNECTION_STRING
+    || 'mongodb://localhost:27017/webdev'
+
+// mongodb+srv://devarsh23:<password>@cluster0.pxmhw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+mongoose.connect(CONNECTION_STRING);
 // mongoose.connect('mongodb://0.0.0.0:27017/webdev');
 const app = express();
 app.use(cors());
@@ -15,7 +20,7 @@ app.get('/', (req, res) => {res.send('Welcome to Full Stack Development!')})
 app.use(express.json());
 helloController(app);
 userController(app);
-tuitsController(app)
+tuitsController(app);
 console.log("hello");
 app.listen(process.env.PORT || 4000);
 
